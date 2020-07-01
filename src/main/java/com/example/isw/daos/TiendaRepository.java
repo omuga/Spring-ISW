@@ -6,3 +6,4 @@ import org.springframework.data.repository.CrudRepository;
 public interface TiendaRepository extends CrudRepository<Tienda,Long> {
 
 }
+
