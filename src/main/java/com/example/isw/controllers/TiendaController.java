@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,11 +42,10 @@ public class TiendaController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Tienda> createTienda(@RequestParam("nombre") String nombre, 
-                @RequestParam("direccion") String direccion){
-        Tienda tienda = new Tienda();
+    public ResponseEntity<Tienda> createTienda(@RequestBody Tienda tienda){
+        /*Tienda tienda = new Tienda();
         tienda.setNombre(nombre);
-        tienda.setDireccion(direccion);
+        tienda.setDireccion(direccion);*/
         tiendaService.saveTienda(tienda);
         return new ResponseEntity<Tienda>(tienda,HttpStatus.OK);
     }
